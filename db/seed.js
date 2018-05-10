@@ -26,6 +26,22 @@ db.Item.remove({}, function(err, res) {
 		sold: false,
 		image: 'http://www.he-man-figuren.de/Bilder/he-man-motuc-figur.jpg'
   }, {
+		date: 1525956335018,
+		description: 'New toy.',
+		sold: false,
+		condition: 'Used',
+		price: 1,
+		title: 'New Toy',
+		zip: 80110
+	}, {
+		date: Date.now(),
+		description: 'New toy that was posted.',
+		sold: false,
+		title: 'Posted New Toy',
+		condition: 'New',
+		price : 10,
+		zip : 80113,
+	}, {
 		date: Date.parse('May 7, 2018 23:59:59'),
 		title: 'Megatron',
 		description: 'Henkei',

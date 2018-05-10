@@ -1,12 +1,19 @@
 var express 						= require('express'),
 		router 							= express.Router(),
-		itemsController = require('../controllers/items')
+		controllers = require('../controllers/index')
+		itemsControllers = require('../controllers/items')
+
+// home page
+router.get('/', controllers.home);
 
 // API Routes
-router.get('/api/items', itemsController.getItems);
-router.get('/api/items/:item_id', itemsController.getItem);
-router.post('/api/items', itemsController.postItem);
-router.put('/api/items/:item_id', itemsController.updateItem);
-router.delete('/api/items/:item_id', itemsController.deleteItem);
+router.get('/api/items', itemsControllers.getItems);
+router.get('/api/items/:item_id', itemsControllers.getItem);
+router.post('/api/items', itemsControllers.postItem);
+router.put('/api/items/:item_id', itemsControllers.updateItem);
+router.delete('/api/items/:item_id', itemsControllers.deleteItem);
+
+// 404
+router.get('*', controllers.fourZeroFour);
 
 module.exports = router;
