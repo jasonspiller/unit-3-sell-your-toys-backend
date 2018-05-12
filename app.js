@@ -1,11 +1,13 @@
 var express = require('express');
 var app = express();
+var cors = require('cors')
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 var path = require('path');
 var router = require('./routes/index.js');
 require('dotenv').config();
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
