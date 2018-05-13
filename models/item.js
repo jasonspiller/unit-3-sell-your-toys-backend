@@ -3,7 +3,7 @@ var mongoose 			= require('mongoose'),
 		Schema 				= mongoose.Schema;
 
 var ItemSchema = new Schema({
-	date: { type: String, default: Date.now() },
+	date: { type: String, default: Date.now },
 	title: String,
 	description: { type: String, default: '' },
 	condition: String,
