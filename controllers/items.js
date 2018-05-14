@@ -38,11 +38,11 @@ exports.postItem = function(req, res) {
 			console.log('Create Post Error: ' + err);
 			res.sendStatus(500);
 		}
-
+		
 		// using SendGrid's v3 Node.js Library
 		// https://github.com/sendgrid/sendgrid-nodejs
 		const sgMail = require('@sendgrid/mail');
-		sgMail.setApiKey('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');
+		sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 		const msg = {
 			to: 'jason@jasonspiller.com',
 			from: 'jason@thetargetlab.com',
