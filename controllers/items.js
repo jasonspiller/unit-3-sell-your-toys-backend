@@ -98,7 +98,7 @@ exports.searchItems = function(req, res) {
 	console.log('search: ' + req.params.query);
 
 	db.Item.setKeywords(function(err) {
-		db.Item.search(req.params.query, { title: 1, description: 2, price: 3, date: 4, image: 5 }, {
+		db.Item.search(req.params.query, { title: 1, description: 2, price: 3, date: 4, image: 5, condition: 6, zip: 7, email: 8, sold: 9 }, {
 	     conditions: {title: {$exists: true} },
 	     sort: {title: 1},
 	     limit: 100
