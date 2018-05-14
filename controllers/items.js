@@ -21,7 +21,7 @@ exports.getItem = function(req, res) {
 
 	db.Item.findById(req.params.item_id, function(err, item) {
 		if(err) {
-			console.log('Get Post Error: ' + err);
+			console.log('Get Item Error: ' + err);
 			res.sendStatus(500);
 		}
 		res.json(item);
@@ -35,7 +35,7 @@ exports.postItem = function(req, res) {
 
 	db.Item.create(req.body, function(err, item) {
 		if(err) {
-			console.log('Create Post Error: ' + err);
+			console.log('Create Item Error: ' + err);
 			res.sendStatus(500);
 		}
 
@@ -64,14 +64,14 @@ exports.updateItem = function(req, res) {
 
 	db.Item.findByIdAndUpdate(req.params.item_id, {$set: req.body}, function(err, item) {
 		if(err) {
-			console.log('Update Post Error: ' + err);
+			console.log('Update Item Error: ' + err);
 			res.sendStatus(500);
 		}
 
 		// get document after updates
 		db.Item.findById(req.params.item_id, function(err, item) {
 			if(err) {
-				console.log('Get Post Error: ' + err);
+				console.log('Get Item Error: ' + err);
 				res.sendStatus(500);
 			}
 			res.json(item);
@@ -86,9 +86,29 @@ exports.deleteItem = function(req, res) {
 
 	db.Item.findByIdAndRemove(req.params.item_id, function(err, item) {
 		if(err) {
-			console.log('Delete Post Error: ' + err);
+			console.log('Delete Item Error: ' + err);
 			res.sendStatus(500);
 		}
 		res.send("Post Deleted");
   });
+}
+
+// search
+exports.searchItems = function(req, res) {
+	console.log('search: ' + req.params.query);
+
+	db.Item.setKeywords(function(err) {
+		db.Item.search(req.params.query, { title: 1, description: 2, price: 3, date: 4, image: 5 }, {
+	     conditions: {title: {$exists: true} },
+	     sort: {title: 1},
+	     limit: 100
+	   }, function(err, data) {
+			 if(err) {
+				 console.log('Search Error: ' + err);
+				 res.sendStatus(500);
+			 }
+			 console.log(data);
+			 res.send(data);
+	   });
+ 	});
 }

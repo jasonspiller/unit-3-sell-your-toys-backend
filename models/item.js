@@ -1,6 +1,7 @@
 // create schema
 var mongoose 			= require('mongoose'),
-		Schema 				= mongoose.Schema;
+		Schema 				= mongoose.Schema,
+		searchPlugin 	= require('mongoose-search-plugin');
 
 var ItemSchema = new Schema({
 	date: { type: String, default: Date.now },
@@ -12,6 +13,11 @@ var ItemSchema = new Schema({
 	image: String,
 	description: { type: String, default: '' },
 	sold: { type: Boolean, default: false }
+});
+
+// add search
+ItemSchema.plugin(searchPlugin, {
+    fields: ['title', 'description']
 });
 
 var Item = mongoose.model('Item', ItemSchema);
