@@ -38,6 +38,20 @@ exports.postItem = function(req, res) {
 			console.log('Create Post Error: ' + err);
 			res.sendStatus(500);
 		}
+
+		// using SendGrid's v3 Node.js Library
+		// https://github.com/sendgrid/sendgrid-nodejs
+		const sgMail = require('@sendgrid/mail');
+		sgMail.setApiKey('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');
+		const msg = {
+			to: 'jason@jasonspiller.com',
+			from: 'jason@thetargetlab.com',
+			subject: 'Your Toy Has Been Posted',
+			text: 'To edit your post click: https://sellyourtoys.jasonspiller.com',
+			html: 'To edit your post click: <a href="https://sellyourtoys.jasonspiller.com">https://sellyourtoys.jasonspiller.com</a>',
+		};
+		sgMail.send(msg);
+
 		res.json(item);
 	});
 }
