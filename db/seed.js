@@ -39,7 +39,7 @@ db.Item.remove({}, function(err, res) {
 		image: 'http://i.imgur.com/Qv5bT.jpg'
   }, {
 		condition: 'used',
-		date: Date.now,
+		date: Date.now(),
 		description: 'This is the largest G.I. Joe toy ever made. It is super rare especially complete.',
 		image: 'http://ardiafm.com/wp-content/uploads/fs/fs-large-lot-vintage-gi-joe-vehicles-access-uss-flagg-headquarters-more.jpg',
 		price: 1000,
