@@ -5,13 +5,14 @@ var mongoose 			= require('mongoose'),
 var ItemSchema = new Schema({
 	date: { type: String, default: Date.now },
 	title: String,
-	description: { type: String, default: '' },
 	condition: String,
 	price: Number,
 	zip: Number,
-	sold: { type: Boolean, default: false },
-	image: String
- });
+	email: String,
+	image: String,
+	description: { type: String, default: '' },
+	sold: { type: Boolean, default: false }
+});
 
 var Item = mongoose.model('Item', ItemSchema);
 

@@ -38,7 +38,7 @@ exports.postItem = function(req, res) {
 			console.log('Create Post Error: ' + err);
 			res.sendStatus(500);
 		}
-		
+
 		// using SendGrid's v3 Node.js Library
 		// https://github.com/sendgrid/sendgrid-nodejs
 		const sgMail = require('@sendgrid/mail');

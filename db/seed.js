@@ -14,6 +14,7 @@ db.Item.remove({}, function(err, res) {
 		condition: 'New',
 		price: 150,
 		zip: 80110,
+		email: 'jason@jasonspiller.com',
 		sold: false,
 		image: 'http://www.toyarena.com/images/653569776314.JPG'
   }, {
@@ -23,6 +24,7 @@ db.Item.remove({}, function(err, res) {
 		condition: 'New',
 		price: 100,
 		zip: 87120,
+		email: 'jason@thetargetlab.com',
 		sold: false,
 		image: 'http://www.he-man-figuren.de/Bilder/he-man-motuc-figur.jpg'
   }, {
@@ -32,24 +34,19 @@ db.Item.remove({}, function(err, res) {
 		condition: 'Used',
 		price: 50,
 		zip: 80246,
+		email: 'jasonspiller@gmail.com',
 		sold: false,
 		image: 'http://i.imgur.com/Qv5bT.jpg'
   }, {
-		date : 1525956335018,
-		description : 'New toy.',
-		sold : false,
-		condition : 'Used',
-		price : 1,
-		title : 'New Toy',
-		zip : 80110
-	}, {
-		date : Date.now.parse(),
-		description : 'New toy that was posted.',
-		sold : false,
-		title : 'Posted New Toy',
-		condition : 'New',
-		price : 10,
-		zip : 80113
+		condition: 'used',
+		date: Date.now,
+		description: 'This is the largest G.I. Joe toy ever made. It is super rare especially complete.',
+		image: 'http://ardiafm.com/wp-content/uploads/fs/fs-large-lot-vintage-gi-joe-vehicles-access-uss-flagg-headquarters-more.jpg',
+		price: 1000,
+		sold:	false,
+		email: 'slick@openyourtoys.com',
+		title: 'G.I. Joe USS Flagg',
+		zip: 80313
 	}
 
 ], function(err, items) {
