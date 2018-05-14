@@ -44,11 +44,11 @@ exports.postItem = function(req, res) {
 		const sgMail = require('@sendgrid/mail');
 		sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 		const msg = {
-			to: 'jason@jasonspiller.com',
-			from: 'jason@thetargetlab.com',
-			subject: 'Your Toy Has Been Posted',
-			text: 'To edit your post click: https://sellyourtoys.jasonspiller.com',
-			html: 'To edit your post click: <a href="https://sellyourtoys.jasonspiller.com">https://sellyourtoys.jasonspiller.com</a>',
+			to: `${item.email}`,
+			from: `jason@thetargetlab.com`,
+			subject: `Your Toy Has Been Posted...`,
+			text: `To edit your post click: https://sellyourtoys.jasonspiller.com/update/${item.id}`,
+			html: `To edit your post click: <a href="https://sellyourtoys.jasonspiller.com/update/${item.id}">Update</a>`
 		};
 		sgMail.send(msg);
 
