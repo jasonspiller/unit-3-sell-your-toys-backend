@@ -94,7 +94,7 @@ exports.deleteItem = function(req, res) {
 }
 
 // search
-exports.searchItems = function(req, res) {
+exports.searchItems = function(req, res, next) {
 	console.log('search: ' + req.params.query);
 
 	db.Item.setKeywords(function(err) {
@@ -108,7 +108,7 @@ exports.searchItems = function(req, res) {
 				 res.sendStatus(500);
 			 }
 			 console.log(data);
-			 res.send(data);
+			 res.json(data);
 	   });
  	});
 }

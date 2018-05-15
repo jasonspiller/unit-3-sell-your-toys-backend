@@ -12,7 +12,7 @@ router.get('/api/items/:item_id', itemsControllers.getItem);
 router.post('/api/items', itemsControllers.postItem);
 router.put('/api/items/:item_id', itemsControllers.updateItem);
 router.delete('/api/items/:item_id', itemsControllers.deleteItem);
-router.get('/api/items/search/:query', itemsControllers.searchItems);
+router.post('/api/items/search/:query', itemsControllers.searchItems);
 
 // 404
 router.get('*', controllers.fourZeroFour);
