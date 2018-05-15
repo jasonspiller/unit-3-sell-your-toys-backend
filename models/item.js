@@ -10,7 +10,7 @@ var ItemSchema = new Schema({
 	price: Number,
 	zip: Number,
 	email: String,
-	image: String,
+	image: { type: String, default: '/no-image.jpg' },
 	description: { type: String, default: '' },
 	sold: { type: Boolean, default: false }
 });
