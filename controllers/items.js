@@ -45,10 +45,10 @@ exports.postItem = function(req, res) {
 		sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 		const msg = {
 			to: `${item.email}`,
-			from: `jason@thetargetlab.com`,
-			subject: `Your Toy Has Been Posted...`,
-			text: `To edit your post click: https://sellyourtoys.jasonspiller.com/update/${item.id}`,
-			html: `To edit your post click: <a href="https://sellyourtoys.jasonspiller.com/update/${item.id}">Update</a>`
+			from: `slick@openyourtoys.com`,
+			subject: `${item.title} Has Been Posted...`,
+			text: `Your toy has been posted. To edit it simple click the link: https://sellyourtoys.jasonspiller.com/update/${item.id}`,
+			html: `Your toy has been posted. To edit it simple click its title: <a href="https://sellyourtoys.jasonspiller.com/update/${item.id}">${item.title}</a>`
 		};
 		sgMail.send(msg);
 
